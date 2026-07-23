@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "last_updated": "2026-07-23T22:00:00Z",
+    "from": "2026-01",
+    "to": "2026-07",
+    "property_id": "321847880",
+    "property_name": "Brazil"
+  },
+  "monthly": [
+    {
+      "period": "2026-01", "label": "Ene",
+      "llm_sessions": 808, "organic_sessions": 21635, "leads": 218,
+      "platforms": {
+        "chatgpt": {"sessions": 764, "leads": 212},
+        "gemini": {"sessions": 10, "leads": 2},
+        "copilot": {"sessions": 13, "leads": 3},
+        "claude_ai": {"sessions": 0, "leads": 0},
+        "perplexity": {"sessions": 21, "leads": 1}
+      }
+    },
+    {
+      "period": "2026-02", "label": "Feb",
+      "llm_sessions": 617, "organic_sessions": 20018, "leads": 149,
+      "platforms": {
+        "chatgpt": {"sessions": 583, "leads": 146},
+        "gemini": {"sessions": 6, "leads": 0},
+        "copilot": {"sessions": 4, "leads": 0},
+        "claude_ai": {"sessions": 0, "leads": 0},
+        "perplexity": {"sessions": 24, "leads": 3}
+      }
+    },
+    {
+      "period": "2026-03", "label": "Mar",
+      "llm_sessions": 461, "organic_sessions": 21299, "leads": 122,
+      "platforms": {
+        "chatgpt": {"sessions": 409, "leads": 116},
+        "gemini": {"sessions": 10, "leads": 1},
+        "copilot": {"sessions": 15, "leads": 3},
+        "claude_ai": {"sessions": 3, "leads": 0},
+        "perplexity": {"sessions": 24, "leads": 2}
+      }
+    },
+    {
+      "period": "2026-04", "label": "Abr",
+      "llm_sessions": 405, "organic_sessions": 16009, "leads": 117,
+      "platforms": {
+        "chatgpt": {"sessions": 363, "leads": 109},
+        "gemini": {"sessions": 12, "leads": 2},
+        "copilot": {"sessions": 9, "leads": 2},
+        "claude_ai": {"sessions": 4, "leads": 1},
+        "perplexity": {"sessions": 17, "leads": 3}
+      }
+    },
+    {
+      "period": "2026-05", "label": "May",
+      "llm_sessions": 1781, "organic_sessions": 16941, "leads": 437,
+      "platforms": {
+        "chatgpt": {"sessions": 1751, "leads": 436},
+        "gemini": {"sessions": 7, "leads": 1},
+        "copilot": {"sessions": 14, "leads": 0},
+        "claude_ai": {"sessions": 2, "leads": 0},
+        "perplexity": {"sessions": 7, "leads": 0}
+      }
+    },
+    {
+      "period": "2026-06", "label": "Jun",
+      "llm_sessions": 1479, "organic_sessions": 13904, "leads": 397,
+      "platforms": {
+        "chatgpt": {"sessions": 1452, "leads": 393},
+        "gemini": {"sessions": 14, "leads": 4},
+        "copilot": {"sessions": 3, "leads": 0},
+        "claude_ai": {"sessions": 2, "leads": 0},
+        "perplexity": {"sessions": 8, "leads": 0}
+      }
+    },
+    {
+      "period": "2026-07", "label": "Jul*",
+      "llm_sessions": 797, "organic_sessions": 12804, "leads": 144,
+      "platforms": {
+        "chatgpt": {"sessions": 764, "leads": 140},
+        "gemini": {"sessions": 13, "leads": 3},
+        "copilot": {"sessions": 8, "leads": 0},
+        "claude_ai": {"sessions": 1, "leads": 0},
+        "perplexity": {"sessions": 11, "leads": 1}
+      }
+    }
+  ],
+  "platforms": [
+    {"name": "ChatGPT", "key": "chatgpt", "sessions": 6086, "leads": 1552, "color": "#10a37f"},
+    {"name": "Perplexity", "key": "perplexity", "sessions": 112, "leads": 10, "color": "#c084fc"},
+    {"name": "Gemini", "key": "gemini", "sessions": 72, "leads": 13, "color": "#4285f4"},
+    {"name": "Copilot", "key": "copilot", "sessions": 66, "leads": 8, "color": "#00b4d8"},
+    {"name": "Claude", "key": "claude_ai", "sessions": 12, "leads": 1, "color": "#da8a38"}
+  ],
+  "countries": [
+    {"country": "Brazil", "sessions": 6048, "leads": 1298},
+    {"country": "United States", "sessions": 45, "leads": 14},
+    {"country": "Portugal", "sessions": 23, "leads": 6},
+    {"country": "Angola", "sessions": 18, "leads": 4},
+    {"country": "Spain", "sessions": 12, "leads": 3},
+    {"country": "Chile", "sessions": 8, "leads": 2},
+    {"country": "France", "sessions": 8, "leads": 2},
+    {"country": "Ireland", "sessions": 7, "leads": 2},
+    {"country": "Italy", "sessions": 7, "leads": 2},
+    {"country": "Japan", "sessions": 7, "leads": 2}
+  ],
+  "channels": [
+    {"source": "google / cpc", "type": "Paid Search", "sessions": 187216, "leads": 98936},
+    {"source": "ig + instagram.com", "type": "Social", "sessions": 148968, "leads": 88996},
+    {"source": "(direct) / (none)", "type": "Direct", "sessions": 33401, "leads": 22473},
+    {"source": "google / organic", "type": "Organic", "sessions": 24995, "leads": 15518},
+    {"source": "email / email", "type": "Email", "sessions": 12925, "leads": 6513},
+    {"source": "google / cpc (cross)", "type": "Paid Search", "sessions": 11789, "leads": 8241},
+    {"source": "bing / cpc", "type": "Paid Search", "sessions": 3872, "leads": 2920},
+    {"source": "chatgpt.com", "type": "AI/LLM", "sessions": 6086, "leads": 1552, "llm": true},
+    {"source": "perplexity.ai", "type": "AI/LLM", "sessions": 112, "leads": 10, "llm": true},
+    {"source": "gemini.google.com", "type": "AI/LLM", "sessions": 72, "leads": 13, "llm": true},
+    {"source": "copilot.com", "type": "AI/LLM", "sessions": 66, "leads": 8, "llm": true},
+    {"source": "claude.ai", "type": "AI/LLM", "sessions": 12, "leads": 1, "llm": true}
+  ],
+  "daily": {}
+}
