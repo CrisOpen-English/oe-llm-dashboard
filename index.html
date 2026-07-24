@@ -11,117 +11,101 @@
   --bd:#24242f;--bd2:#2f2f3c;
   --tx:#e8e8f0;--tx2:#9999b0;--tx3:#5a5a72;
   --accent:#4f7fe4;--pos:#3dcf8e;--warn:#f0a042;--vis:#a78bfa;
-  --chatgpt:#10a37f;--gemini:#4285f4;--copilot:#00b4d8;--claude:#da8a38;--perplexity:#c084fc;
 }
 body{background:var(--bg);color:var(--tx);font-family:-apple-system,"Inter","Segoe UI",sans-serif;font-size:14px;min-height:100vh}
-.wrap{max-width:1280px;margin:0 auto;padding:16px}
-/* LOADING */
-#loading{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:16px}
-.spin{width:40px;height:40px;border:3px solid var(--bd2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+.wrap{max-width:1280px;margin:0 auto;padding:14px}
+#loading{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:14px}
+.spin{width:36px;height:36px;border:3px solid var(--bd2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-#loading p{color:var(--tx3);font-size:13px}
 /* HEADER */
-.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--s1);border:1px solid var(--bd);border-radius:12px;margin-bottom:14px;flex-wrap:wrap;gap:10px}
-.brand{display:flex;align-items:center;gap:10px}
-.brand-logo{width:34px;height:34px;background:linear-gradient(135deg,var(--accent),#6a3de8);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff}
-.brand-name{font-weight:700;font-size:14px}
-.brand-sub{color:var(--tx3);font-size:11px;margin-top:1px}
-.ctrls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-/* PROP TOGGLE */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--s1);border:1px solid var(--bd);border-radius:12px;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-logo{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),#6a3de8);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff}
+.brand-name{font-weight:700;font-size:14px}.brand-sub{color:var(--tx3);font-size:11px;margin-top:1px}
+.ctrls{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .ptog{display:flex;background:var(--s3);border:1px solid var(--bd);border-radius:8px;overflow:hidden}
 .ptog button{background:none;border:none;cursor:pointer;padding:6px 16px;color:var(--tx2);font-size:13px;font-weight:600;transition:all .15s}
 .ptog button.on{background:var(--accent);color:#fff}
-/* DATE RANGE */
 .date-ctrls{display:flex;align-items:center;gap:6px;background:var(--s3);border:1px solid var(--bd);border-radius:8px;padding:5px 10px}
-.date-ctrls label{font-size:11px;color:var(--tx3);font-weight:600;text-transform:uppercase}
-.date-ctrls input[type=month]{background:var(--s2);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:3px 8px;font-size:12px;font-family:inherit;cursor:pointer}
-.date-ctrls input[type=month]:focus{outline:1px solid var(--accent)}
-.date-sep{color:var(--tx3);font-size:12px}
-/* GRANULARITY */
+.date-ctrls label{font-size:10px;color:var(--tx3);font-weight:600;text-transform:uppercase}
+.date-ctrls input[type=date]{background:var(--s2);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:3px 7px;font-size:12px;font-family:inherit;cursor:pointer;color-scheme:dark}
+.date-ctrls input[type=date]:focus{outline:1px solid var(--accent)}
+.date-sep{color:var(--tx3);font-size:11px}
 .gran-tog{display:flex;background:var(--s3);border:1px solid var(--bd);border-radius:8px;overflow:hidden}
-.gran-tog button{background:none;border:none;cursor:pointer;padding:5px 12px;color:var(--tx3);font-size:12px;font-weight:600;transition:all .15s}
-.gran-tog button.on{background:var(--s2);color:var(--tx);border:1px solid var(--bd2)}
-/* STATUS BAR */
-.status-bar{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;background:var(--s2);border:1px solid var(--bd);border-radius:8px;margin-bottom:14px;font-size:11px;color:var(--tx3)}
-.status-bar .updated{display:flex;align-items:center;gap:6px}
-.status-dot{width:7px;height:7px;border-radius:50%;background:var(--pos)}
-.daily-warn{background:rgba(240,160,66,.1);border:1px solid rgba(240,160,66,.3);color:var(--warn);padding:8px 14px;border-radius:8px;margin-bottom:14px;font-size:12px;display:none}
+.gran-tog button{background:none;border:none;cursor:pointer;padding:5px 11px;color:var(--tx3);font-size:12px;font-weight:600;transition:all .15s}
+.gran-tog button.on{background:var(--accent);color:#fff}
+.btn-clear{background:none;border:1px solid var(--bd2);border-radius:7px;cursor:pointer;padding:5px 12px;color:var(--tx3);font-size:12px;font-weight:600;transition:all .15s;white-space:nowrap}
+.btn-clear:hover{border-color:var(--warn);color:var(--warn)}
+/* STATUS */
+.status-bar{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;background:var(--s2);border:1px solid var(--bd);border-radius:8px;margin-bottom:12px;font-size:11px;color:var(--tx3)}
+.sdot{width:7px;height:7px;border-radius:50%;background:var(--pos);display:inline-block;margin-right:5px}
 /* KPIS */
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
-.kpi{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;position:relative;overflow:hidden;transition:border-color .2s}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:12px}
+.kpi{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:13px 15px;position:relative;overflow:hidden}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
 .kpi.ac::before{background:var(--accent)}.kpi.gr::before{background:var(--pos)}.kpi.wa::before{background:var(--warn)}.kpi.vi::before{background:var(--vis)}.kpi.nn::before{background:var(--tx3)}
-.kpi-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;font-weight:700}
+.kpi-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px;font-weight:700}
 .kpi-val{font-size:26px;font-weight:800;line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
 .kpi-val.ac{color:var(--accent)}.kpi-val.gr{color:var(--pos)}.kpi-val.wa{color:var(--warn)}.kpi-val.vi{color:var(--vis)}
-.kpi-sub{font-size:10.5px;color:var(--tx3);margin-top:4px}
+.kpi-sub{font-size:10px;color:var(--tx3);margin-top:3px}
 /* DONUTS */
-.donuts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:16px}
-.card-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tx3);margin-bottom:12px}
-.donut-wrap{display:flex;align-items:center;gap:16px}
-.donut-canvas-wrap{position:relative;width:170px;height:170px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.donut-center{position:absolute;text-align:center;pointer-events:none}
-.dc-val{font-size:20px;font-weight:800;letter-spacing:-1px}
-.dc-lbl{font-size:9px;color:var(--tx3);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
-.donut-legend{flex:1;display:flex;flex-direction:column;gap:7px}
-.leg-item{display:flex;align-items:center;gap:7px;font-size:11.5px}
-.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.leg-name{color:var(--tx2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.leg-val{color:var(--tx);font-weight:600;font-variant-numeric:tabular-nums}
+.donuts{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:12px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:15px}
+.card-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tx3);margin-bottom:11px}
+.donut-wrap{display:flex;align-items:center;gap:14px}
+.dnw{position:relative;width:160px;height:160px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.dnc{position:absolute;text-align:center;pointer-events:none}
+.dc-val{font-size:19px;font-weight:800;letter-spacing:-1px}
+.dc-lbl{font-size:9px;color:var(--tx3);text-transform:uppercase;margin-top:2px}
+.donut-legend{flex:1;display:flex;flex-direction:column;gap:6px}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:11px}
+.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.leg-name{color:var(--tx2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}
+.leg-val{color:var(--tx);font-weight:600;font-variant-numeric:tabular-nums;font-size:11px}
 .leg-pct{color:var(--tx3);font-size:10px;margin-left:3px}
 /* TABS */
 .tabs-box{background:var(--s1);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
 .tabnav{display:flex;border-bottom:1px solid var(--bd);background:var(--s2);overflow-x:auto}
-.tabnav button{background:none;border:none;cursor:pointer;padding:12px 18px;color:var(--tx3);font-size:13px;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap}
+.tabnav button{background:none;border:none;cursor:pointer;padding:11px 16px;color:var(--tx3);font-size:13px;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap}
 .tabnav button.on{color:var(--accent);border-bottom-color:var(--accent)}
 .tabnav button:hover:not(.on){color:var(--tx2)}
-.tabpane{display:none;padding:18px}
+.tabpane{display:none;padding:16px}
 .tabpane.on{display:block}
 /* TABLES */
 .tbl-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse}
-th{text-align:left;padding:9px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--tx3);border-bottom:1px solid var(--bd2);white-space:nowrap}
-td{padding:9px 12px;font-size:13px;border-bottom:1px solid rgba(255,255,255,.03);font-variant-numeric:tabular-nums;white-space:nowrap}
+th{text-align:left;padding:8px 11px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--tx3);border-bottom:1px solid var(--bd2);white-space:nowrap}
+td{padding:8px 11px;font-size:13px;border-bottom:1px solid rgba(255,255,255,.03);font-variant-numeric:tabular-nums;white-space:nowrap}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.02)}
 tr.hlrow td{background:rgba(79,127,228,.07)}
 tr.hlrow:hover td{background:rgba(79,127,228,.12)}
 tr.tfoot td{border-top:1px solid var(--bd2);background:var(--s2);font-weight:700;border-bottom:none}
 .tr{text-align:right}
-.pdot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px;flex-shrink:0;vertical-align:middle}
+.pdot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle}
 /* BADGES */
 .badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700}
 .b-llm{background:rgba(124,92,252,.18);color:#a78bfa}
 .b-org{background:rgba(79,127,228,.18);color:#7eb3f9}
-.b-paid{background:rgba(240,160,66,.18);color:#f0c080}
-.b-soc{background:rgba(61,207,142,.18);color:#5de8a8}
-.b-dir{background:rgba(148,163,184,.15);color:#94a3b8}
-.b-em{background:rgba(251,191,36,.15);color:#fbbf24}
 .rh{color:#3dcf8e;font-weight:700}.rm{color:#f0a042;font-weight:600}.rl{color:#94a3b8}
 /* CHARTS */
-.charts2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.chart-box canvas{max-height:230px}
-.ctitle{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tx3);margin-bottom:10px}
-/* PBAR */
-.pbar{display:flex;align-items:center;gap:7px}
-.pbar-track{width:55px;height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.charts2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}
+.chart-box canvas{max-height:220px}
+.ctitle{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tx3);margin-bottom:9px}
+.pbar{display:flex;align-items:center;gap:6px}
+.pbar-track{width:50px;height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
 .pbar-fill{height:100%;border-radius:2px}
-/* NOTE */
-.note{font-size:11px;color:var(--tx3);margin-top:12px;padding:9px 13px;background:rgba(255,255,255,.02);border-radius:6px;border-left:2px solid var(--bd2);line-height:1.6}
-/* ERROR */
-.error-box{text-align:center;padding:40px;color:var(--tx3)}
-.error-box h3{color:var(--warn);margin-bottom:8px;font-size:16px}
-/* RESPONSIVE */
+.note{font-size:11px;color:var(--tx3);margin-top:11px;padding:8px 12px;background:rgba(255,255,255,.02);border-radius:6px;border-left:2px solid var(--bd2);line-height:1.6}
+.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tx3);margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
+.section-title:first-child{margin-top:0}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}.donuts{grid-template-columns:1fr}.charts2{grid-template-columns:1fr}}
 @media(max-width:600px){.kpis{grid-template-columns:repeat(2,1fr)}.hdr{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
-<div id="loading"><div class="spin"></div><p>Cargando datos desde GitHub…</p></div>
+<div id="loading"><div class="spin"></div><p style="color:#5a5a72;font-size:13px">Cargando datos desde GitHub…</p></div>
 <div class="wrap" id="app" style="display:none">
 
-<!-- HEADER -->
 <header class="hdr">
   <div class="brand">
     <div class="brand-logo">OE</div>
@@ -134,412 +118,329 @@ tr.tfoot td{border-top:1px solid var(--bd2);background:var(--s2);font-weight:700
     </div>
     <div class="date-ctrls">
       <label>Desde</label>
-      <input type="month" id="start-month" onchange="onDateChange()">
+      <input type="date" id="start-date" onchange="onDateChange()">
       <span class="date-sep">→</span>
       <label>Hasta</label>
-      <input type="month" id="end-month" onchange="onDateChange()">
+      <input type="date" id="end-date" onchange="onDateChange()">
     </div>
     <div class="gran-tog" id="gran-tog">
       <button class="on" onclick="switchGran('monthly')">Mensual</button>
       <button onclick="switchGran('daily')">Diario</button>
     </div>
+    <button class="btn-clear" onclick="clearFilters()">✕ Quitar filtros</button>
   </div>
 </header>
 
-<!-- STATUS BAR -->
 <div class="status-bar">
-  <div class="updated"><div class="status-dot"></div><span id="last-updated">Cargando…</span></div>
+  <span><span class="sdot"></span><span id="last-updated">—</span></span>
   <span id="period-label">—</span>
 </div>
-<div class="daily-warn" id="daily-warn">⚠️ Datos diarios no disponibles para el período seleccionado. Abre Claude y escribe: <strong>"Agrega datos diarios de [mes] para [propiedad]"</strong></div>
 
-<!-- KPIs -->
 <div class="kpis">
-  <div class="kpi ac"><div class="kpi-lbl">LLM Sessions</div><div class="kpi-val ac" id="k-llm-s">—</div><div class="kpi-sub">Tráfico orgánico desde IA</div></div>
-  <div class="kpi nn"><div class="kpi-lbl">Organic Sessions</div><div class="kpi-val" id="k-org-s">—</div><div class="kpi-sub">Búsqueda orgánica tradicional</div></div>
+  <div class="kpi ac"><div class="kpi-lbl">LLM Sessions</div><div class="kpi-val ac" id="k-llm-s">—</div><div class="kpi-sub">Tráfico orgánico desde AI</div></div>
+  <div class="kpi nn"><div class="kpi-lbl">Organic Sessions</div><div class="kpi-val" id="k-org-s">—</div><div class="kpi-sub">Búsqueda orgánica total</div></div>
   <div class="kpi gr"><div class="kpi-lbl">LLM Leads</div><div class="kpi-val gr" id="k-llm-l">—</div><div class="kpi-sub">Leads desde fuentes AI</div></div>
   <div class="kpi wa"><div class="kpi-lbl">LLM Lead Rate</div><div class="kpi-val wa" id="k-lr">—</div><div class="kpi-sub">Leads / LLM Sessions</div></div>
   <div class="kpi vi"><div class="kpi-lbl">Visibility Score</div><div class="kpi-val vi" id="k-vs">—</div><div class="kpi-sub">LLM / (LLM + Organic)</div></div>
 </div>
 
-<!-- DONUTS -->
 <div class="donuts">
-  <div class="card"><div class="card-title">Sessions — Organic vs AI/LLM</div><div class="donut-wrap"><div class="donut-canvas-wrap"><canvas id="d-sessions"></canvas><div class="donut-center"><div class="dc-val vi" id="dc-vs">—</div><div class="dc-lbl">LLM share</div></div></div><div class="donut-legend" id="leg-sessions"></div></div></div>
-  <div class="card"><div class="card-title">LLM Leads — por Plataforma</div><div class="donut-wrap"><div class="donut-canvas-wrap"><canvas id="d-leads"></canvas><div class="donut-center"><div class="dc-val gr" id="dc-leads">—</div><div class="dc-lbl">total leads</div></div></div><div class="donut-legend" id="leg-leads"></div></div></div>
+  <div class="card"><div class="card-title">Sessions — Organic vs AI/LLM</div><div class="donut-wrap"><div class="dnw"><canvas id="d-sessions"></canvas><div class="dnc"><div class="dc-val vi" id="dc-vs">—</div><div class="dc-lbl">LLM share</div></div></div><div class="donut-legend" id="leg-sessions"></div></div></div>
+  <div class="card"><div class="card-title">LLM Leads — por Plataforma</div><div class="donut-wrap"><div class="dnw"><canvas id="d-leads"></canvas><div class="dnc"><div class="dc-val gr" id="dc-leads">—</div><div class="dc-lbl">total leads</div></div></div><div class="donut-legend" id="leg-leads"></div></div></div>
 </div>
 
-<!-- TABS -->
 <div class="tabs-box">
   <div class="tabnav">
     <button class="on" onclick="switchTab('tendencia')">📈 Tendencia</button>
     <button onclick="switchTab('plataformas')">🤖 Plataformas LLM</button>
     <button onclick="switchTab('paises')">🌎 Países</button>
-    <button onclick="switchTab('canales')">📊 Canales</button>
+    <button onclick="switchTab('canales')">📊 Canales Orgánicos + AI</button>
   </div>
   <div id="tab-tendencia" class="tabpane on">
     <div class="charts2">
-      <div class="chart-box"><div class="ctitle" id="trend-title">LLM vs Organic — Índice de Crecimiento (base=100)</div><canvas id="ch-trend"></canvas></div>
+      <div class="chart-box"><div class="ctitle" id="trend-title">LLM vs Organic — Sesiones</div><canvas id="ch-trend"></canvas></div>
       <div class="chart-box"><div class="ctitle">Visibility Score % (por período)</div><canvas id="ch-vs"></canvas></div>
     </div>
     <div class="charts2">
       <div class="chart-box"><div class="ctitle">LLM Sessions por Plataforma</div><canvas id="ch-plat"></canvas></div>
-      <div class="chart-box"><div class="ctitle">LLM Lead Rate % (por período)</div><canvas id="ch-lr"></canvas></div>
+      <div class="chart-box"><div class="ctitle">LLM Lead Rate % (mensual)</div><canvas id="ch-lr"></canvas></div>
     </div>
   </div>
   <div id="tab-plataformas" class="tabpane">
+    <div class="section-title">🤖 Tráfico desde LLMs</div>
     <div class="tbl-wrap"><table>
-      <thead><tr><th>LLM Platform</th><th class="tr">Sessions</th><th class="tr">% del Total LLM</th><th class="tr">Leads</th><th class="tr">Lead Rate</th></tr></thead>
+      <thead><tr><th>Plataforma LLM</th><th class="tr">Sessions</th><th class="tr">% LLM Total</th><th class="tr">Leads</th><th class="tr">Lead Rate</th></tr></thead>
       <tbody id="tbl-plat"></tbody><tfoot id="tbl-plat-foot"></tfoot>
     </table></div>
-    <div class="note">Lead count = eventos de lead por plataforma (análisis mensual GA4). Lead Rate = Leads / Sessions.</div>
+    <div class="section-title" style="margin-top:20px">🔍 Tráfico Orgánico por Motor de Búsqueda</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Motor de Búsqueda</th><th class="tr">Sessions</th><th class="tr">% Organic</th><th class="tr">Lead Users</th><th class="tr">CVR</th></tr></thead>
+      <tbody id="tbl-organic"></tbody><tfoot id="tbl-organic-foot"></tfoot>
+    </table></div>
+    <div class="note">Lead count LLM = eventos de lead por plataforma (análisis mensual GA4). Lead Users orgánico = GA4 totalUsers metric con filtro de evento lead.</div>
   </div>
   <div id="tab-paises" class="tabpane">
     <div class="tbl-wrap"><table>
       <thead><tr><th>País</th><th class="tr">Sessions (LLM)</th><th class="tr">% del Total</th><th class="tr">Lead Users</th><th class="tr">Lead Rate</th></tr></thead>
       <tbody id="tbl-ctry"></tbody>
     </table></div>
-    <div class="note">Sessions = sesiones originadas desde LLM por país. Lead Users = usuarios únicos que dispararon el evento de lead, atribuidos a LLM (GA4 totalUsers metric). Datos del período completo almacenado.</div>
+    <div class="note">Sessions = sesiones desde fuentes LLM por país. Lead Users = usuarios únicos que dispararon el evento de lead atribuidos a LLM (GA4 totalUsers).</div>
   </div>
   <div id="tab-canales" class="tabpane">
+    <div class="note" style="margin-bottom:14px;border-left-color:var(--accent)">
+      <strong style="color:var(--tx)">¿Qué se muestra aquí?</strong> Solo tráfico orgánico de motores de búsqueda + fuentes AI/LLM. Los canales de pago (Google Ads, Meta Ads), social orgánico, email y directo se excluyen porque no son tráfico orgánico ni de IA y pertenecen a análisis de Performance.
+    </div>
     <div class="tbl-wrap"><table>
-      <thead><tr><th>Source / Medium</th><th>Canal</th><th class="tr">Sessions</th><th class="tr">% Sessions</th><th class="tr">Leads</th><th class="tr">CVR</th></tr></thead>
+      <thead><tr><th>Source / Medium</th><th>Canal</th><th class="tr">Sessions</th><th class="tr">% Sesiones</th><th class="tr">Leads</th><th class="tr">CVR</th></tr></thead>
       <tbody id="tbl-chan"></tbody>
     </table></div>
-    <div class="note">⚡ = fuentes AI/LLM (datos del período completo almacenado). Leads no-LLM = GA4 totalUsers metric con evento de lead por atribución de fuente.</div>
+    <div class="note">⚡ = fuente AI/LLM. CVR = Leads / Sessions. Datos del período completo almacenado (Jan–Jul 2026).</div>
   </div>
 </div>
-</div><!-- /wrap -->
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-// ══════════════════════════════════════
-//  CONFIG
-// ══════════════════════════════════════
 const DATA_URLS = {
   latam: 'https://raw.githubusercontent.com/CrisOpen-English/oe-llm-dashboard/main/data/latam.json',
   brazil: 'https://raw.githubusercontent.com/CrisOpen-English/oe-llm-dashboard/main/data/brazil.json'
 };
-const PLAT_COLORS = {chatgpt:'#10a37f',gemini:'#4285f4',copilot:'#00b4d8',claude_ai:'#da8a38',perplexity:'#c084fc'};
-
-// ══════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════
-let prop = 'latam';
-let rawData = {latam: null, brazil: null};
+let prop = 'latam', granularity = 'monthly';
+let rawData = {latam:null,brazil:null};
 let filtered = null;
-let granularity = 'monthly';
 const charts = {};
 
-// ══════════════════════════════════════
-//  UTILS
-// ══════════════════════════════════════
 const N = v => v?.toLocaleString('en-US') ?? '—';
-const P = v => (v != null ? v.toFixed(1)+'%' : '—');
-const RC = r => r >= 15 ? 'rh' : r >= 10 ? 'rm' : 'rl';
-const BT = t => ({'AI/LLM':'b-llm','Organic':'b-org','Paid Search':'b-paid','Social':'b-soc','Direct':'b-dir','Email':'b-em'}[t] || 'b-dir');
+const P = v => v != null ? v.toFixed(1)+'%' : '—';
+const RC = r => r>=15?'rh':r>=10?'rm':'rl';
 function killChart(id){if(charts[id]){charts[id].destroy();delete charts[id]}}
 function mkChart(id,cfg){killChart(id);const c=document.getElementById(id)?.getContext('2d');if(!c)return;charts[id]=new Chart(c,cfg)}
+Chart.defaults.color='#5a5a72';Chart.defaults.borderColor='rgba(255,255,255,.05)';Chart.defaults.font.family='-apple-system,Inter,sans-serif';Chart.defaults.plugins.legend.display=false;
 
-Chart.defaults.color='#5a5a72';
-Chart.defaults.borderColor='rgba(255,255,255,.05)';
-Chart.defaults.font.family='-apple-system,Inter,sans-serif';
-Chart.defaults.plugins.legend.display=false;
+function fmtDate(d){const p=d.split('-');return `${p[2]}/${p[1]}`}
+function fmtDateLong(d){const p=d.split('-');const m=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];return `${p[2]} ${m[+p[1]]}`}
 
-// ══════════════════════════════════════
-//  LOAD DATA
-// ══════════════════════════════════════
-async function loadData() {
-  try {
-    const [lRes, bRes] = await Promise.all([
-      fetch(DATA_URLS.latam + '?t=' + Date.now()),
-      fetch(DATA_URLS.brazil + '?t=' + Date.now())
-    ]);
-    rawData.latam = await lRes.json();
-    rawData.brazil = await bRes.json();
-
-    // Init date pickers from LATAM meta
-    const meta = rawData.latam.meta;
-    document.getElementById('start-month').value = meta.from;
-    document.getElementById('end-month').value = meta.to;
-    document.getElementById('start-month').min = meta.from;
-    document.getElementById('end-month').max = meta.to;
-
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
+async function loadData(){
+  try{
+    const [lR,bR]=await Promise.all([fetch(DATA_URLS.latam+'?t='+Date.now()),fetch(DATA_URLS.brazil+'?t='+Date.now())]);
+    rawData.latam=await lR.json(); rawData.brazil=await bR.json();
+    const meta=rawData.latam.meta;
+    document.getElementById('start-date').value=meta.from;
+    document.getElementById('end-date').value=meta.to;
+    document.getElementById('start-date').min=meta.from;
+    document.getElementById('end-date').max=meta.to;
+    document.getElementById('loading').style.display='none';
+    document.getElementById('app').style.display='block';
     updateDashboard();
-  } catch(e) {
-    document.getElementById('loading').innerHTML = `<div style="text-align:center;color:#9999b0;max-width:420px;padding:20px"><h3 style="color:#f0a042;margin-bottom:8px">Error al cargar datos</h3><p style="font-size:13px;line-height:1.6">No se pudo conectar a los archivos JSON en GitHub.<br>Verifica tu conexión o que el repositorio sea público.</p><p style="margin-top:10px;font-size:11px;color:#5a5a72">${e.message}</p></div>`;
+  }catch(e){
+    document.getElementById('loading').innerHTML=`<div style="text-align:center;color:#9999b0;max-width:400px;padding:20px"><h3 style="color:#f0a042;margin-bottom:8px">Error al cargar datos</h3><p style="font-size:13px;line-height:1.6">${e.message}</p></div>`;
   }
 }
 
-// ══════════════════════════════════════
-//  FILTER DATA
-// ══════════════════════════════════════
-function getFiltered(data) {
-  const sm = document.getElementById('start-month').value;
-  const em = document.getElementById('end-month').value;
-  const months = data.monthly.filter(m => m.period >= sm && m.period <= em);
+// ── FILTER ──────────────────────────────
+function getFiltered(data){
+  const sd=document.getElementById('start-date').value;
+  const ed=document.getElementById('end-date').value;
 
-  const tot = months.reduce((a, m) => ({
-    llm_sessions: a.llm_sessions + m.llm_sessions,
-    organic_sessions: a.organic_sessions + m.organic_sessions,
-    leads: a.leads + m.leads
-  }), {llm_sessions:0, organic_sessions:0, leads:0});
-
-  tot.lead_rate = tot.llm_sessions > 0 ? tot.leads / tot.llm_sessions * 100 : 0;
-  tot.visibility_score = (tot.llm_sessions + tot.organic_sessions) > 0
-    ? tot.llm_sessions / (tot.llm_sessions + tot.organic_sessions) * 100 : 0;
-
-  // Platform totals from filtered months
-  const pkeys = ['chatgpt','gemini','copilot','claude_ai','perplexity'];
-  const ptot = {};
-  pkeys.forEach(k => ptot[k] = {sessions:0, leads:0});
-  months.forEach(m => pkeys.forEach(k => {
-    if(m.platforms?.[k]) { ptot[k].sessions += m.platforms[k].sessions; ptot[k].leads += m.platforms[k].leads; }
-  }));
-
-  const plat_filtered = data.platforms.map(p => ({
-    ...p, sessions: ptot[p.key]?.sessions || 0, leads: ptot[p.key]?.leads || 0
-  })).sort((a,b) => b.sessions - a.sessions);
-
-  return { ...data, monthly_filtered: months, totals: tot, plat_filtered };
-}
-
-// ══════════════════════════════════════
-//  GET SERIES DATA (monthly or daily)
-// ══════════════════════════════════════
-function getSeries(f) {
-  const sm = document.getElementById('start-month').value;
-  const em = document.getElementById('end-month').value;
-
-  if (granularity === 'daily') {
-    const daily_data = f.daily || {};
-    const series = [];
-    f.monthly_filtered.forEach(m => {
-      const d = daily_data[m.period];
-      if (d && Array.isArray(d)) series.push(...d);
-    });
-    if (series.length > 0) {
-      return { labels: series.map(d => d.date.substring(5)), llm: series.map(d => d.llm_sessions), organic: series.map(d => d.organic_sessions), leads: series.map(d => d.leads || 0) };
-    }
-    // No daily data
-    document.getElementById('daily-warn').style.display = 'block';
-    return null;
+  if(granularity==='daily'){
+    const days=data.daily.filter(d=>d.date>=sd&&d.date<=ed);
+    const tot=days.reduce((a,d)=>({llm_sessions:a.llm_sessions+d.llm_sessions,organic_sessions:a.organic_sessions+d.organic_sessions,leads:a.leads+(d.leads||0)}),{llm_sessions:0,organic_sessions:0,leads:0});
+    tot.lead_rate=tot.llm_sessions>0?tot.leads/tot.llm_sessions*100:0;
+    tot.visibility_score=(tot.llm_sessions+tot.organic_sessions)>0?tot.llm_sessions/(tot.llm_sessions+tot.organic_sessions)*100:0;
+    // Platform totals from daily
+    const ptot={};
+    days.forEach(d=>Object.entries(d.platforms||{}).forEach(([k,v])=>ptot[k]=(ptot[k]||0)+v));
+    const plat_filtered=data.platforms.map(p=>({...p,sessions:ptot[p.key]||0,leads:Math.round((ptot[p.key]||0)/(data.platforms.reduce((a,x)=>{const k=x.key;return a+(ptot[k]||0)},0)||1)*data.platforms.reduce((a,p2)=>a+p2.leads,0))})).sort((a,b)=>b.sessions-a.sessions);
+    return{...data,monthly_filtered:[],daily_filtered:days,totals:tot,plat_filtered,mode:'daily'};
   }
 
-  document.getElementById('daily-warn').style.display = 'none';
-  const m = f.monthly_filtered;
-  return { labels: m.map(x => x.label), llm: m.map(x => x.llm_sessions), organic: m.map(x => x.organic_sessions), leads: m.map(x => x.leads) };
-}
-
-// ══════════════════════════════════════
-//  UPDATE DASHBOARD
-// ══════════════════════════════════════
-function updateDashboard() {
-  const raw = rawData[prop];
-  if (!raw) return;
-  filtered = getFiltered(raw);
-  renderKPIs();
-  renderDonuts();
-  renderTrendCharts();
-  renderPlatforms();
-  renderCountries();
-  renderChannels();
-  updateStatus();
-}
-
-function updateStatus() {
-  const lu = rawData[prop]?.meta?.last_updated;
-  if (lu) {
-    const d = new Date(lu);
-    document.getElementById('last-updated').textContent = 'Datos al ' + d.toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
-  }
-  const sm = document.getElementById('start-month').value;
-  const em = document.getElementById('end-month').value;
-  const labels = filtered.monthly_filtered.map(m => m.label);
-  document.getElementById('period-label').textContent = labels.length > 0 ? labels[0] + ' → ' + labels[labels.length-1] + ' · ' + labels.length + ' ' + (granularity === 'daily' ? 'días disponibles' : 'mes(es)') : 'Sin datos';
-}
-
-// ══════════════════════════════════════
-//  KPIs
-// ══════════════════════════════════════
-function renderKPIs() {
-  const t = filtered.totals;
-  document.getElementById('k-llm-s').textContent = N(t.llm_sessions);
-  document.getElementById('k-org-s').textContent = N(t.organic_sessions);
-  document.getElementById('k-llm-l').textContent = N(t.leads);
-  document.getElementById('k-lr').textContent = P(t.lead_rate);
-  document.getElementById('k-vs').textContent = P(t.visibility_score);
-}
-
-// ══════════════════════════════════════
-//  DONUTS
-// ══════════════════════════════════════
-function renderDonuts() {
-  const t = filtered.totals;
-  document.getElementById('dc-vs').textContent = P(t.visibility_score);
-  document.getElementById('dc-leads').textContent = N(t.leads);
-
-  // Sessions donut
-  mkChart('d-sessions',{
-    type:'doughnut',
-    data:{labels:['AI/LLM','Organic Search'],datasets:[{data:[t.llm_sessions,t.organic_sessions],backgroundColor:['#4f7fe4','#252535'],borderWidth:0,hoverOffset:4}]},
-    options:{cutout:'72%',plugins:{tooltip:{callbacks:{label:ctx=>' '+N(ctx.raw)+' ('+P(ctx.raw/(t.llm_sessions+t.organic_sessions)*100)+')'}}}},
+  // Monthly mode: include months that overlap with date range
+  const months=data.monthly.filter(m=>{
+    const mStart=m.period+'-01';
+    const mEnd=m.period+'-31';
+    return mStart<=ed&&mEnd>=sd;
   });
-  const ls = document.getElementById('leg-sessions');
-  ls.innerHTML = [['AI/LLM',t.llm_sessions,'#4f7fe4'],['Organic',t.organic_sessions,'#252535']].map(([n,v,c]) =>
-    `<div class="leg-item"><div class="leg-dot" style="background:${c}"></div><span class="leg-name">${n}</span><span class="leg-val">${N(v)}</span><span class="leg-pct">${P(v/(t.llm_sessions+t.organic_sessions)*100)}</span></div>`
-  ).join('');
-
-  // Leads donut
-  const plats = filtered.plat_filtered.filter(p => p.leads > 0);
-  mkChart('d-leads',{
-    type:'doughnut',
-    data:{labels:plats.map(p=>p.name),datasets:[{data:plats.map(p=>p.leads),backgroundColor:plats.map(p=>p.color),borderWidth:0,hoverOffset:4}]},
-    options:{cutout:'72%',plugins:{tooltip:{callbacks:{label:ctx=>' '+N(ctx.raw)+' ('+P(ctx.raw/t.leads*100)+')'}}}},
-  });
-  const ll = document.getElementById('leg-leads');
-  ll.innerHTML = plats.map(p =>
-    `<div class="leg-item"><div class="leg-dot" style="background:${p.color}"></div><span class="leg-name">${p.name}</span><span class="leg-val">${N(p.leads)}</span><span class="leg-pct">${P(t.leads>0?p.leads/t.leads*100:0)}</span></div>`
-  ).join('');
+  const tot=months.reduce((a,m)=>({llm_sessions:a.llm_sessions+m.llm_sessions,organic_sessions:a.organic_sessions+m.organic_sessions,leads:a.leads+m.leads}),{llm_sessions:0,organic_sessions:0,leads:0});
+  tot.lead_rate=tot.llm_sessions>0?tot.leads/tot.llm_sessions*100:0;
+  tot.visibility_score=(tot.llm_sessions+tot.organic_sessions)>0?tot.llm_sessions/(tot.llm_sessions+tot.organic_sessions)*100:0;
+  const pkeys=['chatgpt','gemini','copilot','claude_ai','perplexity'];
+  const ptot={};pkeys.forEach(k=>ptot[k]={sessions:0,leads:0});
+  months.forEach(m=>pkeys.forEach(k=>{if(m.platforms?.[k]){ptot[k].sessions+=m.platforms[k].sessions;ptot[k].leads+=m.platforms[k].leads;}}));
+  const plat_filtered=data.platforms.map(p=>({...p,sessions:ptot[p.key]?.sessions||0,leads:ptot[p.key]?.leads||0})).sort((a,b)=>b.sessions-a.sessions);
+  return{...data,monthly_filtered:months,daily_filtered:[],totals:tot,plat_filtered,mode:'monthly'};
 }
 
-// ══════════════════════════════════════
-//  TREND CHARTS
-// ══════════════════════════════════════
-function renderTrendCharts() {
-  const s = getSeries(filtered);
-  if (!s) {
-    ['ch-trend','ch-vs','ch-plat','ch-lr'].forEach(killChart);
-    return;
-  }
+function updateDashboard(){
+  const raw=rawData[prop];if(!raw)return;
+  filtered=getFiltered(raw);
+  renderKPIs();renderDonuts();renderTrendCharts();renderPlatforms();renderCountries();renderChannels();updateStatus();
+}
 
-  const ttl = document.getElementById('trend-title');
-  ttl.textContent = granularity === 'daily' ? 'LLM vs Organic — Sessions (diario)' : 'LLM vs Organic — Índice de Crecimiento (base=100)';
+function updateStatus(){
+  const lu=rawData[prop]?.meta?.last_updated;
+  if(lu){const d=new Date(lu);document.getElementById('last-updated').textContent='Datos al '+d.toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'});}
+  const sd=document.getElementById('start-date').value;
+  const ed=document.getElementById('end-date').value;
+  const sd2=sd?new Date(sd+'T00:00:00').toLocaleDateString('es-ES',{day:'2-digit',month:'short'}):'';
+  const ed2=ed?new Date(ed+'T00:00:00').toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'}):'';
+  const cnt=granularity==='daily'?(filtered.daily_filtered?.length||0)+' días':((filtered.monthly_filtered?.length||0)+' mes(es)');
+  document.getElementById('period-label').textContent=`${sd2} → ${ed2} · ${cnt} · ${granularity==='daily'?'Vista Diaria':'Vista Mensual'}`;
+}
 
-  // Trend: growth index or raw daily
-  let llmSerie, orgSerie;
-  if (granularity === 'daily' || s.llm[0] === 0) {
-    llmSerie = s.llm; orgSerie = s.organic;
+function renderKPIs(){
+  const t=filtered.totals;
+  document.getElementById('k-llm-s').textContent=N(t.llm_sessions);
+  document.getElementById('k-org-s').textContent=N(t.organic_sessions);
+  document.getElementById('k-llm-l').textContent=N(t.leads);
+  document.getElementById('k-lr').textContent=P(t.lead_rate);
+  document.getElementById('k-vs').textContent=P(t.visibility_score);
+}
+
+function renderDonuts(){
+  const t=filtered.totals;
+  document.getElementById('dc-vs').textContent=P(t.visibility_score);
+  document.getElementById('dc-leads').textContent=N(t.leads);
+  mkChart('d-sessions',{type:'doughnut',data:{labels:['AI/LLM','Organic'],datasets:[{data:[t.llm_sessions,t.organic_sessions],backgroundColor:['#4f7fe4','#252535'],borderWidth:0,hoverOffset:4}]},options:{cutout:'72%',plugins:{tooltip:{callbacks:{label:ctx=>' '+N(ctx.raw)+' ('+P(ctx.raw/(t.llm_sessions+t.organic_sessions)*100)+')'}}}}});
+  document.getElementById('leg-sessions').innerHTML=[['AI/LLM',t.llm_sessions,'#4f7fe4'],['Organic',t.organic_sessions,'#252535']].map(([n,v,c])=>`<div class="leg-item"><div class="leg-dot" style="background:${c}"></div><span class="leg-name">${n}</span><span class="leg-val">${N(v)}</span><span class="leg-pct">${P(v/(t.llm_sessions+t.organic_sessions)*100)}</span></div>`).join('');
+  const plats=filtered.plat_filtered.filter(p=>p.leads>0);
+  mkChart('d-leads',{type:'doughnut',data:{labels:plats.map(p=>p.name),datasets:[{data:plats.map(p=>p.leads),backgroundColor:plats.map(p=>p.color),borderWidth:0,hoverOffset:4}]},options:{cutout:'72%',plugins:{tooltip:{callbacks:{label:ctx=>' '+N(ctx.raw)+' ('+P(ctx.raw/(t.leads||1)*100)+')'}}}}}); 
+  document.getElementById('leg-leads').innerHTML=plats.map(p=>`<div class="leg-item"><div class="leg-dot" style="background:${p.color}"></div><span class="leg-name">${p.name}</span><span class="leg-val">${N(p.leads)}</span><span class="leg-pct">${P(t.leads>0?p.leads/t.leads*100:0)}</span></div>`).join('');
+}
+
+function renderTrendCharts(){
+  let labels,llm,organic,vsData,platData,lrData;
+  const isDly=granularity==='daily';
+  document.getElementById('trend-title').textContent=isDly?'LLM vs Organic — Sessions (diario)':'LLM vs Organic — Índice de Crecimiento (Ene=100)';
+
+  if(isDly){
+    const days=filtered.daily_filtered;
+    if(!days||days.length===0){['ch-trend','ch-vs','ch-plat','ch-lr'].forEach(killChart);return;}
+    const step=days.length>90?7:days.length>30?3:1;
+    labels=days.filter((_,i)=>i%step===0).map(d=>fmtDate(d.date));
+    llm=days.filter((_,i)=>i%step===0).map(d=>d.llm_sessions);
+    organic=days.filter((_,i)=>i%step===0).map(d=>d.organic_sessions);
+    vsData=days.filter((_,i)=>i%step===0).map(d=>+(d.llm_sessions/(d.llm_sessions+d.organic_sessions)*100).toFixed(2));
+    // Platform stacked from daily
+    const pkeys=['chatgpt','gemini','copilot','claude_ai','perplexity'];
+    const pcolors=['#10a37f','#4285f4','#00b4d8','#da8a38','#c084fc'];
+    const pnames=['ChatGPT','Gemini','Copilot','Claude','Perplexity'];
+    const platDays=days.filter((_,i)=>i%step===0);
+    platData=pkeys.map((k,i)=>({label:pnames[i],data:platDays.map(d=>d.platforms?.[k]||0),backgroundColor:pcolors[i]+'bf',borderRadius:2,stack:'llm'}));
+    lrData=null;
   } else {
-    llmSerie = s.llm.map(v => +(v/s.llm[0]*100).toFixed(1));
-    orgSerie = s.organic.map(v => +(v/s.organic[0]*100).toFixed(1));
+    const months=filtered.monthly_filtered;if(!months||months.length===0){['ch-trend','ch-vs','ch-plat','ch-lr'].forEach(killChart);return;}
+    labels=months.map(m=>m.label);
+    const llmRaw=months.map(m=>m.llm_sessions);
+    const orgRaw=months.map(m=>m.organic_sessions);
+    llm=llmRaw[0]>0?llmRaw.map(v=>+(v/llmRaw[0]*100).toFixed(1)):llmRaw;
+    organic=orgRaw[0]>0?orgRaw.map(v=>+(v/orgRaw[0]*100).toFixed(1)):orgRaw;
+    vsData=months.map(m=>+(m.llm_sessions/(m.llm_sessions+m.organic_sessions)*100).toFixed(2));
+    const pkeys=['chatgpt','gemini','copilot','claude_ai','perplexity'];
+    const pcolors=['#10a37f','#4285f4','#00b4d8','#da8a38','#c084fc'];
+    const pnames=['ChatGPT','Gemini','Copilot','Claude','Perplexity'];
+    platData=pkeys.map((k,i)=>({label:pnames[i],data:months.map(m=>m.platforms?.[k]?.sessions||0),backgroundColor:pcolors[i]+'bf',borderRadius:2,stack:'llm'}));
+    lrData=months.map(m=>m.llm_sessions>0?+(m.leads/m.llm_sessions*100).toFixed(1):0);
   }
-  mkChart('ch-trend',{type:'line',data:{labels:s.labels,datasets:[
-    {label:'LLM',data:llmSerie,borderColor:'#4f7fe4',backgroundColor:'rgba(79,127,228,.1)',borderWidth:2.5,pointRadius:3,tension:.3,fill:true},
-    {label:'Organic',data:orgSerie,borderColor:'#3dcf8e',backgroundColor:'rgba(61,207,142,.06)',borderWidth:2,pointRadius:3,tension:.3,fill:true}
-  ]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:true,labels:{color:'#9999b0',boxWidth:10,font:{size:10}}},tooltip:{mode:'index',intersect:false}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10},maxTicksLimit:10},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}}}}});
 
-  // Visibility Score
-  const vsData = s.llm.map((v,i) => +(v/(v+s.organic[i])*100).toFixed(2));
-  mkChart('ch-vs',{type:'bar',data:{labels:s.labels,datasets:[{data:vsData,backgroundColor:'rgba(167,139,250,.5)',borderColor:'#a78bfa',borderWidth:1.5,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:true,plugins:{tooltip:{callbacks:{label:ctx=>' '+ctx.raw+'%'}}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10},maxTicksLimit:10},grid:{display:false}},y:{ticks:{color:'#5a5a72',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}}}}});
-
-  // Platform stacked
-  const pkeys = ['chatgpt','gemini','copilot','claude_ai','perplexity'];
-  const pnames = ['ChatGPT','Gemini','Copilot','Claude','Perplexity'];
-  const platDatasets = pkeys.map((k,i) => ({
-    label:pnames[i],
-    data: filtered.monthly_filtered.map(m => m.platforms?.[k]?.sessions || 0),
-    backgroundColor: Object.values(PLAT_COLORS)[i]+'bf',
-    borderRadius:2, stack:'llm'
-  }));
-  const platLabels = filtered.monthly_filtered.map(m => m.label);
-  mkChart('ch-plat',{type:'bar',data:{labels:platLabels,datasets:platDatasets},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:true,labels:{color:'#9999b0',boxWidth:9,font:{size:10}}},tooltip:{mode:'index',intersect:false}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10}},grid:{display:false},stacked:true},y:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'},stacked:true}}}});
-
-  // Lead Rate
-  const lrData = filtered.monthly_filtered.map(m => m.llm_sessions > 0 ? +(m.leads/m.llm_sessions*100).toFixed(1) : 0);
-  mkChart('ch-lr',{type:'line',data:{labels:platLabels,datasets:[{data:lrData,borderColor:'#f0a042',backgroundColor:'rgba(240,160,66,.12)',borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#f0a042',tension:.3,fill:true}]},options:{responsive:true,maintainAspectRatio:true,plugins:{tooltip:{callbacks:{label:ctx=>' '+ctx.raw+'%'}}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a5a72',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}}}}});
+  const baseOpts={responsive:true,maintainAspectRatio:true,plugins:{legend:{display:true,labels:{color:'#9999b0',boxWidth:9,font:{size:10}}},tooltip:{mode:'index',intersect:false}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10},maxTicksLimit:12},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}}}};
+  mkChart('ch-trend',{type:'line',data:{labels,datasets:[{label:'LLM',data:llm,borderColor:'#4f7fe4',backgroundColor:'rgba(79,127,228,.1)',borderWidth:2.5,pointRadius:2,tension:.3,fill:true},{label:'Organic',data:organic,borderColor:'#3dcf8e',backgroundColor:'rgba(61,207,142,.06)',borderWidth:2,pointRadius:2,tension:.3,fill:true}]},options:baseOpts});
+  mkChart('ch-vs',{type:'bar',data:{labels,datasets:[{data:vsData,backgroundColor:'rgba(167,139,250,.5)',borderColor:'#a78bfa',borderWidth:1.5,borderRadius:3}]},options:{...baseOpts,plugins:{...baseOpts.plugins,legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+ctx.raw+'%'}}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10},maxTicksLimit:12},grid:{display:false}},y:{ticks:{color:'#5a5a72',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}}}}});
+  mkChart('ch-plat',{type:'bar',data:{labels,datasets:platData},options:{...baseOpts,scales:{x:{ticks:{color:'#5a5a72',font:{size:10}},grid:{display:false},stacked:true},y:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'},stacked:true}}}});
+  if(lrData){
+    mkChart('ch-lr',{type:'line',data:{labels,datasets:[{data:lrData,borderColor:'#f0a042',backgroundColor:'rgba(240,160,66,.12)',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#f0a042',tension:.3,fill:true}]},options:{...baseOpts,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+ctx.raw+'%'}}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a5a72',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}}}}});
+  } else {
+    killChart('ch-lr');
+    const el=document.getElementById('ch-lr');
+    if(el){const ctx=el.getContext('2d');ctx.clearRect(0,0,el.width,el.height);}
+  }
 }
 
-// ══════════════════════════════════════
-//  TABLE: PLATFORMS
-// ══════════════════════════════════════
-function renderPlatforms() {
-  const plats = filtered.plat_filtered;
-  const tot = filtered.totals;
-  let html = '';
-  plats.forEach(p => {
-    const pct = tot.llm_sessions > 0 ? (p.sessions/tot.llm_sessions*100).toFixed(1) : '0.0';
-    const lr = p.sessions > 0 ? (p.leads/p.sessions*100).toFixed(1) : '0.0';
-    html += `<tr><td><span class="pdot" style="background:${p.color}"></span>${p.name}</td><td class="tr">${N(p.sessions)}</td><td class="tr"><div class="pbar"><div class="pbar-track"><div class="pbar-fill" style="width:${pct}%;background:${p.color}"></div></div>${pct}%</div></td><td class="tr">${N(p.leads)}</td><td class="tr"><span class="${RC(parseFloat(lr))}">${lr}%</span></td></tr>`;
+function renderPlatforms(){
+  const plats=filtered.plat_filtered;const tot=filtered.totals;
+  let html='';
+  plats.forEach(p=>{
+    const pct=tot.llm_sessions>0?(p.sessions/tot.llm_sessions*100).toFixed(1):'0.0';
+    const lr=p.sessions>0?(p.leads/p.sessions*100).toFixed(1):'0.0';
+    html+=`<tr><td><span class="pdot" style="background:${p.color}"></span>${p.name}</td><td class="tr">${N(p.sessions)}</td><td class="tr"><div class="pbar"><div class="pbar-track"><div class="pbar-fill" style="width:${pct}%;background:${p.color}"></div></div>${pct}%</div></td><td class="tr">${N(p.leads)}</td><td class="tr"><span class="${RC(parseFloat(lr))}">${lr}%</span></td></tr>`;
   });
-  document.getElementById('tbl-plat').innerHTML = html;
-  const lr = tot.llm_sessions > 0 ? (tot.leads/tot.llm_sessions*100).toFixed(1) : '0.0';
-  document.getElementById('tbl-plat-foot').innerHTML = `<tr class="tfoot"><td>Total LLM</td><td class="tr">${N(tot.llm_sessions)}</td><td class="tr">100%</td><td class="tr">${N(tot.leads)}</td><td class="tr"><span class="${RC(parseFloat(lr))}">${lr}%</span></td></tr>`;
+  document.getElementById('tbl-plat').innerHTML=html;
+  const lr=tot.llm_sessions>0?(tot.leads/tot.llm_sessions*100).toFixed(1):'0.0';
+  document.getElementById('tbl-plat-foot').innerHTML=`<tr class="tfoot"><td>Total LLM</td><td class="tr">${N(tot.llm_sessions)}</td><td class="tr">100%</td><td class="tr">${N(tot.leads)}</td><td class="tr"><span class="${RC(parseFloat(lr))}">${lr}%</span></td></tr>`;
+  // Organic sources table
+  const orgChannels=filtered.channels.filter(c=>c.type==='Organic');
+  const orgTotal=orgChannels.reduce((a,c)=>a+c.sessions,0);
+  let orgHtml='';
+  orgChannels.forEach(c=>{
+    const pct=orgTotal>0?(c.sessions/orgTotal*100).toFixed(1):'0.0';
+    const cvr=c.sessions>0?(c.leads/c.sessions*100).toFixed(1):'0.0';
+    orgHtml+=`<tr><td>${c.source}</td><td class="tr">${N(c.sessions)}</td><td class="tr">${pct}%</td><td class="tr">${N(c.leads)}</td><td class="tr"><span class="${RC(parseFloat(cvr))}">${cvr}%</span></td></tr>`;
+  });
+  document.getElementById('tbl-organic').innerHTML=orgHtml;
+  const orgLeadTot=orgChannels.reduce((a,c)=>a+c.leads,0);
+  const orgCvr=orgTotal>0?(orgLeadTot/orgTotal*100).toFixed(1):'0.0';
+  document.getElementById('tbl-organic-foot').innerHTML=`<tr class="tfoot"><td>Total Organic</td><td class="tr">${N(orgTotal)}</td><td class="tr">100%</td><td class="tr">${N(orgLeadTot)}</td><td class="tr"><span class="${RC(parseFloat(orgCvr))}">${orgCvr}%</span></td></tr>`;
 }
 
-// ══════════════════════════════════════
-//  TABLE: COUNTRIES
-// ══════════════════════════════════════
-function renderCountries() {
-  const ctries = filtered.countries || [];
-  const totS = ctries.reduce((a,c) => a+c.sessions, 0);
-  document.getElementById('tbl-ctry').innerHTML = ctries.map(c => {
-    const pct = totS > 0 ? (c.sessions/totS*100).toFixed(1) : '0.0';
-    const lr = c.sessions > 0 ? (c.leads/c.sessions*100).toFixed(1) : '0.0';
-    return `<tr><td>${c.country}</td><td class="tr">${N(c.sessions)}</td><td class="tr">${pct}%</td><td class="tr">${N(c.leads)}</td><td class="tr"><span class="${RC(parseFloat(lr))}">${lr}%</span></td></tr>`;
+function renderCountries(){
+  const ctries=filtered.countries||[];const totS=ctries.reduce((a,c)=>a+c.sessions,0);
+  document.getElementById('tbl-ctry').innerHTML=ctries.map(c=>{
+    const pct=totS>0?(c.sessions/totS*100).toFixed(1):'0.0';
+    const lr=c.sessions>0?(c.leads/c.sessions*100).toFixed(1):'0.0';
+    return`<tr><td>${c.country}</td><td class="tr">${N(c.sessions)}</td><td class="tr">${pct}%</td><td class="tr">${N(c.leads)}</td><td class="tr"><span class="${RC(parseFloat(lr))}">${lr}%</span></td></tr>`;
   }).join('');
 }
 
-// ══════════════════════════════════════
-//  TABLE: CHANNELS
-// ══════════════════════════════════════
-function renderChannels() {
-  const ch = filtered.channels || [];
-  const totS = ch.reduce((a,c) => a+c.sessions, 0);
-  document.getElementById('tbl-chan').innerHTML = ch.map(c => {
-    const pct = totS > 0 ? (c.sessions/totS*100).toFixed(1) : '0.0';
-    const cvr = c.sessions > 0 ? (c.leads/c.sessions*100).toFixed(1) : '0.0';
-    const badge = BT(c.type);
-    const rc = c.llm ? 'hlrow' : '';
-    const pfx = c.llm ? '⚡ ' : '';
-    return `<tr class="${rc}"><td><span style="color:${c.llm?'#a78bfa':'inherit'}">${pfx}${c.source}</span></td><td><span class="badge ${badge}">${c.type}</span></td><td class="tr">${N(c.sessions)}</td><td class="tr">${pct}%</td><td class="tr">${N(c.leads)}</td><td class="tr"><span class="${RC(parseFloat(cvr))}">${cvr}%</span></td></tr>`;
+function renderChannels(){
+  const ch=filtered.channels||[];const totS=ch.reduce((a,c)=>a+c.sessions,0);
+  document.getElementById('tbl-chan').innerHTML=ch.map(c=>{
+    const pct=totS>0?(c.sessions/totS*100).toFixed(1):'0.0';
+    const cvr=c.sessions>0?(c.leads/c.sessions*100).toFixed(1):'0.0';
+    const badge=c.llm?'b-llm':'b-org';
+    const rc=c.llm?'hlrow':'';const pfx=c.llm?'⚡ ':'';
+    const label=c.llm?'AI/LLM':'Orgánico';
+    return`<tr class="${rc}"><td><span style="color:${c.llm?'#a78bfa':'inherit'}">${pfx}${c.source}</span></td><td><span class="badge ${badge}">${label}</span></td><td class="tr">${N(c.sessions)}</td><td class="tr">${pct}%</td><td class="tr">${N(c.leads)}</td><td class="tr"><span class="${RC(parseFloat(cvr))}">${cvr}%</span></td></tr>`;
   }).join('');
 }
 
-// ══════════════════════════════════════
-//  SWITCH HANDLERS
-// ══════════════════════════════════════
-function switchProp(p) {
-  if (prop === p) return;
-  prop = p;
-  document.querySelectorAll('.ptog button').forEach((b,i) => b.classList.toggle('on', i === (p==='latam'?0:1)));
-  // Sync date bounds
-  const meta = rawData[p]?.meta;
-  if (meta) {
-    document.getElementById('start-month').min = meta.from;
-    document.getElementById('end-month').max = meta.to;
-    document.getElementById('start-month').value = meta.from;
-    document.getElementById('end-month').value = meta.to;
+function switchProp(p){
+  if(prop===p)return;prop=p;
+  document.querySelectorAll('.ptog button').forEach((b,i)=>b.classList.toggle('on',i===(p==='latam'?0:1)));
+  const meta=rawData[p]?.meta;
+  if(meta){document.getElementById('start-date').value=meta.from;document.getElementById('end-date').value=meta.to;}
+  updateDashboard();
+}
+
+function switchGran(g){
+  if(granularity===g)return;granularity=g;
+  document.querySelectorAll('.gran-tog button').forEach((b,i)=>b.classList.toggle('on',i===(g==='monthly'?0:1)));
+  updateDashboard();
+}
+
+function onDateChange(){
+  const sd=document.getElementById('start-date').value;
+  const ed=document.getElementById('end-date').value;
+  if(sd&&ed&&sd<=ed)updateDashboard();
+}
+
+function clearFilters(){
+  const meta=rawData[prop]?.meta;
+  if(meta){
+    document.getElementById('start-date').value=meta.from;
+    document.getElementById('end-date').value=meta.to;
   }
-  updateDashboard();
+  if(granularity!=='monthly'){switchGran('monthly');}
+  else{updateDashboard();}
 }
 
-function switchGran(g) {
-  if (granularity === g) return;
-  granularity = g;
-  document.querySelectorAll('.gran-tog button').forEach((b,i) => b.classList.toggle('on', i === (g==='monthly'?0:1)));
-  updateDashboard();
-}
-
-function onDateChange() {
-  const sm = document.getElementById('start-month').value;
-  const em = document.getElementById('end-month').value;
-  if (sm && em && sm <= em) updateDashboard();
-}
-
-function switchTab(id) {
-  document.querySelectorAll('.tabpane').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.tabnav button').forEach(b => b.classList.remove('on'));
+function switchTab(id){
+  document.querySelectorAll('.tabpane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tabnav button').forEach(b=>b.classList.remove('on'));
   document.getElementById('tab-'+id).classList.add('on');
-  const idx = {tendencia:0,plataformas:1,paises:2,canales:3}[id];
+  const idx={tendencia:0,plataformas:1,paises:2,canales:3}[id];
   document.querySelectorAll('.tabnav button')[idx].classList.add('on');
-  if (id === 'tendencia') setTimeout(() => renderTrendCharts(), 50);
+  if(id==='tendencia')setTimeout(()=>renderTrendCharts(),50);
 }
 
-// ══════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════
 loadData();
 </script>
 </body>
