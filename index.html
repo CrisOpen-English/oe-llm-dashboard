@@ -134,7 +134,7 @@ tr.section-row td{background:var(--s3);font-size:10px;font-weight:700;text-trans
   <div class="kpi nn"><div class="kpi-lbl">Organic Sessions</div><div class="kpi-val" id="k-org-s">—</div><div class="kpi-sub">Búsqueda orgánica</div></div>
   <div class="kpi gr"><div class="kpi-lbl">LLM Leads</div><div class="kpi-val gr" id="k-llm-l">—</div><div class="kpi-sub">Leads desde AI</div></div>
   <div class="kpi wa"><div class="kpi-lbl">LLM Lead Rate</div><div class="kpi-val wa" id="k-lr">—</div><div class="kpi-sub">Leads / LLM Sessions</div></div>
-  <div class="kpi vi"><div class="kpi-lbl">Visibility Score</div><div class="kpi-val vi" id="k-vs">—</div><div class="kpi-sub">LLM / (LLM + Organic)</div></div>
+  <div class="kpi vi"><div class="kpi-lbl">LLM Discovery Share</div><div class="kpi-val vi" id="k-vs">—</div><div class="kpi-sub">LLM / (LLM + Organic)</div></div>
   <div class="kpi tl"><div class="kpi-lbl">Organic Leads</div><div class="kpi-val tl" id="k-org-l">—</div><div class="kpi-sub">Leads búsqueda orgánica</div></div>
   <div class="kpi tl"><div class="kpi-lbl">Organic Lead Rate</div><div class="kpi-val tl" id="k-org-lr">—</div><div class="kpi-sub">Leads / Organic Sessions</div></div>
 </div>
@@ -155,7 +155,7 @@ tr.section-row td{background:var(--s3);font-size:10px;font-weight:700;text-trans
   <div id="tab-tendencia" class="tabpane on">
     <div class="charts2">
       <div class="chart-box"><div class="ctitle" id="trend-title">LLM vs Organic — Sesiones</div><canvas id="ch-trend"></canvas></div>
-      <div class="chart-box"><div class="ctitle">Visibility Score % (por período)</div><canvas id="ch-vs"></canvas></div>
+      <div class="chart-box"><div class="ctitle">LLM Discovery Share % (por período)</div><canvas id="ch-vs"></canvas></div>
     </div>
     <div class="charts2">
       <div class="chart-box"><div class="ctitle">LLM Sessions por Plataforma</div><canvas id="ch-plat"></canvas></div>
@@ -249,7 +249,7 @@ function getFiltered(data){
   }),{llm_sessions:0,organic_sessions:0,leads:0,organic_leads:0});
 
   tot.lead_rate     = tot.llm_sessions>0     ? tot.leads/tot.llm_sessions*100           : 0;
-  tot.visibility_score = (tot.llm_sessions+tot.organic_sessions)>0
+  tot.llm_discovery_share = (tot.llm_sessions+tot.organic_sessions)>0
     ? tot.llm_sessions/(tot.llm_sessions+tot.organic_sessions)*100 : 0;
   tot.organic_lead_rate = tot.organic_sessions>0 ? tot.organic_leads/tot.organic_sessions*100 : 0;
 
@@ -293,14 +293,14 @@ function renderKPIs(){
   document.getElementById('k-org-s').textContent   = N(t.organic_sessions);
   document.getElementById('k-llm-l').textContent   = N(t.leads);
   document.getElementById('k-lr').textContent      = P(t.lead_rate);
-  document.getElementById('k-vs').textContent      = P(t.visibility_score);
+  document.getElementById('k-vs').textContent      = P(t.llm_discovery_share);
   document.getElementById('k-org-l').textContent   = N(t.organic_leads);
   document.getElementById('k-org-lr').textContent  = P(t.organic_lead_rate);
 }
 
 function renderDonuts(){
   const t=filtered.totals;
-  document.getElementById('dc-vs').textContent   = P(t.visibility_score);
+  document.getElementById('dc-vs').textContent   = P(t.llm_discovery_share);
   document.getElementById('dc-leads').textContent= N(t.leads);
 
   // Sessions donut
