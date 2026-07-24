@@ -326,7 +326,8 @@ function renderTrendCharts(){
     const pnames=['ChatGPT','Gemini','Copilot','Claude','Perplexity'];
     const platDays=days.filter((_,i)=>i%step===0);
     platData=pkeys.map((k,i)=>({label:pnames[i],data:platDays.map(d=>d.platforms?.[k]||0),backgroundColor:pcolors[i]+'bf',borderRadius:2,stack:'llm'}));
-    lrData=null;
+    // Daily lead rate: compute from filtered daily data
+    lrData=days.filter((_,i)=>i%step===0).map(d=>d.llm_sessions>0?+(d.leads/(d.llm_sessions)*100).toFixed(1):0);
   } else {
     const months=filtered.monthly_filtered;if(!months||months.length===0){['ch-trend','ch-vs','ch-plat','ch-lr'].forEach(killChart);return;}
     labels=months.map(m=>m.label);
@@ -347,11 +348,7 @@ function renderTrendCharts(){
   mkChart('ch-vs',{type:'bar',data:{labels,datasets:[{data:vsData,backgroundColor:'rgba(167,139,250,.5)',borderColor:'#a78bfa',borderWidth:1.5,borderRadius:3}]},options:{...baseOpts,plugins:{...baseOpts.plugins,legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+ctx.raw+'%'}}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10},maxTicksLimit:12},grid:{display:false}},y:{ticks:{color:'#5a5a72',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}}}}});
   mkChart('ch-plat',{type:'bar',data:{labels,datasets:platData},options:{...baseOpts,scales:{x:{ticks:{color:'#5a5a72',font:{size:10}},grid:{display:false},stacked:true},y:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'},stacked:true}}}});
   if(lrData){
-    mkChart('ch-lr',{type:'line',data:{labels,datasets:[{data:lrData,borderColor:'#f0a042',backgroundColor:'rgba(240,160,66,.12)',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#f0a042',tension:.3,fill:true}]},options:{...baseOpts,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+ctx.raw+'%'}}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a5a72',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}}}}});
-  } else {
-    killChart('ch-lr');
-    const el=document.getElementById('ch-lr');
-    if(el){const ctx=el.getContext('2d');ctx.clearRect(0,0,el.width,el.height);}
+    mkChart('ch-lr',{type:'line',data:{labels,datasets:[{data:lrData,borderColor:'#f0a042',backgroundColor:'rgba(240,160,66,.12)',borderWidth:2.5,pointRadius:isDly?1:3,pointBackgroundColor:'#f0a042',tension:.3,fill:true}]},options:{...baseOpts,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+ctx.raw+'%'}}},scales:{x:{ticks:{color:'#5a5a72',font:{size:10},maxTicksLimit:12},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a5a72',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}}}}});
   }
 }
 
